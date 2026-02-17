@@ -4,14 +4,14 @@
     <section >    
         <h2 class="font-bold">Noticias mas relevantes</h2>
         <section class="grid grid-cols-3">
-          <div class="flex flex-col items-center border-solid border-4 border-black text-center">
-            <div><img class="w-20" src="../../images/default.png" alt="foto"></div>
+          <div v-for="noticia in storeNoticias" class="flex flex-col items-center border-solid border-4 border-black text-center">
+            <div><img class="w-20" :src="noticia.imagen" alt="foto"></div>
             <div>
-              <h3>Titulo</h3>
-              <p>descripcion breve</p>
+              <h3>{{noticia.titulo}}</h3>
+              <p>{{noticia.descripcion}}</p>
               <p class="flex justify-between">
-                <span>autor</span> 
-                <span>fecha</span>   
+                <span>{{noticia.autor}}</span> 
+                <span>{{noticia.fecha}}</span>   
               </p>
             </div>
           </div>
@@ -31,5 +31,12 @@
 </template>
 
 <script setup>
-  
+  import {ref, onMounted, computed} from 'vue'
+    import { noticiasStore } from '@/stores/noticias';  
+
+    const storeNoticias = noticiasStore();
+    
+    onMounted(() =>{
+        storeNoticias.cargarNoticias();
+    })
 </script>

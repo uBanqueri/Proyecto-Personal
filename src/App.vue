@@ -17,6 +17,9 @@
   <body class="bg-blue-200 pb-10">
     <RouterView/> 
   </body>  
+  <footer class="bg-red-500">
+    <p class="text-center">MediaVault &copy; 2024</p>
+  </footer>
 </template>
 
 

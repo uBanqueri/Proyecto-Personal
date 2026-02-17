@@ -14,7 +14,7 @@
                 <input class="border-2" type="password">
             </div>
             <div class="flex items-center">
-                <button class="border-2 rounded-2xl p-2 ml-3" type="submit">Resgistrarse</button>
+                <button class="border-2 rounded-2xl p-2 ml-3" type="submit">Guardar cambios</button>
             </div> 
         </form>
         <h2>Juegos favoritos</h2>
