@@ -1,0 +1,30 @@
+[
+    {
+     "nombreUsuario": "Unaibg",
+     "correoElectronico": "unai@prueba.com",
+     "numeroTelefono": "+34 000 000",
+     "contrasena": "123",
+     "imagen": "../imeges/default.png"   
+    },
+    {
+        "nombreUsuario": "DevMaster99",
+        "correoElectronico": "admin@vuejs.com",
+        "numeroTelefono": "+34 600 000 001",
+        "contrasena": "hash_seguro_123",
+        "imagen": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    {
+        "nombreUsuario": "CreativeCoder",
+        "correoElectronico": "info@diseno.io",
+        "numeroTelefono": "+52 555 123 456",
+        "contrasena": "pass_secreta_456",
+        "imagen": "https://randomuser.me/api/portraits/women/2.jpg"
+    },
+    {
+        "nombreUsuario": "PixelArtiste",
+        "correoElectronico": "pixel@art.net",
+        "numeroTelefono": "+1 202 555 0199",
+        "contrasena": "pixel_power_789",
+        "imagen": "https://randomuser.me/api/portraits/women/3.jpg"
+    }
+]
