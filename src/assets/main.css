@@ -1,3 +1,26 @@
-  @import "tailwindcss"
+@import "tailwindcss";
 
-  
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --background-image-light: url('/images/fondoPapel.jpg');
+  --background-image-dark:  url('/images/fondoJuego.jpg');
+}
+
+@layer base {
+  button{
+    @apply hover:cursor-pointer 
+  }
+}
+@layer components {
+  .navOp {
+    @apply rounded-3xl border-2 p-1 px-2 hover:underline
+  }
+
+  .bg-card-light {
+   background-image: var(--background-image-light);
+      }
+  .bg-card-dark {
+    background-image: var(--background-image-dark);
+  }
+}

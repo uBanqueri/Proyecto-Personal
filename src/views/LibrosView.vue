@@ -2,7 +2,7 @@
     <h1 class="text-2xl font-bold text-center">Listado de Libros</h1>
     <div class="flex justify-center gap-4 my-4">
         <span>Buscar por:</span><input v-model="busqueda" type="text" placeholder="Titulo o autor..." class="border-2">
-        <select v-model="filtroCate" class="border-2">
+        <select v-model="filtroCate" class="border-2 hover:cursor-pointer">
             <option value="">Todos</option>
             <option v-for="categoria in categorias" :value="categoria">
                 {{ categoria }}

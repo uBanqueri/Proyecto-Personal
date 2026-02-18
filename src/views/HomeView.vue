@@ -1,23 +1,23 @@
-<template>
+<template class="">
   <main class="mx-10">
     <h1 class="text-2xl text-center">MediaVault</h1>
     <section >    
         <h2 class="font-bold">Noticias mas relevantes</h2>
         <section class="grid grid-cols-3 gap-4">
-          <div v-for="noticia in paginas" class="flex flex-col items-center border-solid border-2 border-black text-cente px-2">
-            <div><img class="w-50 mt-2" :src="noticia.imagen" alt="foto"></div>
+          <div v-for="noticia in paginas" class="flex flex-col bg-card-light items-center border-2 border-black text-center px-2 rounded-xl">
+            <div><img class="h-40 mt-2" :src="noticia.imagen" alt="foto"></div>
             <div>
-              <h3>{{noticia.titulo}}</h3>
+              <h3 class="underline font-semibold">{{noticia.titulo}}</h3>
               <p>{{noticia.descripcion}}</p>
-              <p class="flex justify-between">
+              <p class="flex justify-between text-sm text-gray-700">
                 <span>{{noticia.autor}}</span> 
                 <span>{{noticia.fecha}}</span>   
               </p>
             </div>
           </div>
         </section>  
-        <div>
-          <button v-for="p in totalPaginas" @click="irPagina(p)">
+        <div class="flex justify-center text-2xl gap-2">
+          <button class="border-2 rounded-lg mt-2 p-1" v-for="p in totalPaginas" @click="irPagina(p)">
             {{ p }}
           </button>
         </div>          
