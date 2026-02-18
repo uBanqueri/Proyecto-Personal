@@ -4,6 +4,8 @@ import axios from 'axios';
 
 export const usuariosStore = defineStore('usuarios', () => {
   const usuario = ref(null);
+  const juegosFav = ref([]);
+  const librosFav = ref([]);
 
   async function login(email, password) {
     try {
@@ -35,5 +37,25 @@ export const usuariosStore = defineStore('usuarios', () => {
       usuario.value = JSON.parse(usuarioGuardado);
     }
   }
-  return { usuario, login, logout, cargarUsuario };
+
+  //Agregar Favoritos
+  function agregarJuego(juegoFav){
+    juegosFav.value.push(juegoFav);
+  }
+  function agregarLibro(libroFav){
+    librosFav.value.push(libroFav);
+  }
+  function eliminarJuego(id){
+    juegosFav.value = juegosFav.value.filter(juegoFav => juegoFav.id !== id);
+  }
+  function eliminarLibro(id){
+    librosFav.value = librosFav.value.filter(libroFav => libroFav.id !== id);
+  }
+
+  //Crea un usuario
+  
+  
+  
+
+  return { usuario, login, logout, cargarUsuario, juegosFav, librosFav, agregarJuego, agregarLibro, eliminarJuego, eliminarLibro };
 });

@@ -1,7 +1,7 @@
 <template>
     <h1 class="text-2xl font-bold text-center">Listado de Juegos</h1>
     <div class="flex justify-center gap-4 my-4">
-        <input v-model="busqueda" type="text" placeholder="Titulo o equipo..." class="border-2">
+        <span>Buscar por:</span><input v-model="busqueda" type="text" placeholder="Titulo o equipo..." class="border-2">
         <select v-model="filtroCate" class="border-2">
             <option value="">Todos</option>
             <option v-for="categoria in categorias" :key="categoria" :value="categoria">
@@ -14,15 +14,14 @@
             <div class="relative flex justify-center">
                 <img class="items-center h-30" :src="juego.imagen" alt="imagen">
                 <!--:src="`/images/${juego.imagen}`"-->
-                <button><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
+                <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego)"><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
+                <button v-else @click="eliminarJuego(juego.id)"><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon2.png" alt="corazon"width="20px"></button>
             </div>
             <div class="text-center">
                 <h3 class="font-bold">{{juego.titulo}}</h3>
-                <p>{{ juego.creador }}</p>
-                <p class="flex justify-between">
-                    <span>{{ juego.categoria }}</span>
-                    <span>{{juego.anio}}</span>
-                </p>
+                <p><span class="font-medium">Desarrollado por:</span> {{ juego.creador }}</p>                
+                <span class="font-medium"> Categoria:</span> {{ juego.categoria }} <br>
+                <span class="font-medium">Lanzamiento:</span>  {{juego.anio}}           
                 <p>{{ juego.descripcion }}</p>
             </div>            
         </div>
@@ -31,8 +30,10 @@
 <script setup>
     import {ref, onMounted, computed} from 'vue'
     import { juegosStore } from '@/stores/juegos';  
+    import { usuariosStore } from '@/stores/usuarios';
 
     const storeJuegos = juegosStore();
+    const storeUsuarios = usuariosStore();
     
     onMounted(() =>{
         storeJuegos.cargarJuegos();
@@ -56,4 +57,20 @@
             (juego.categoria == filtroCate.value || filtroCate.value == '')
         )
     })
+
+    //funciones para favoritos
+    function esFavorito(id){
+        return storeUsuarios.juegosFav.some(juegoFav => juegoFav.id == id);
+    }
+    
+    function agregarJuego(id){
+        storeUsuarios.agregarJuego(id);
+        
+    }
+
+    function eliminarJuego(id){
+        storeUsuarios.eliminarJuego(id);
+        
+    }
+
 </script>

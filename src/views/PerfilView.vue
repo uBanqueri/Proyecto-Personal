@@ -5,25 +5,40 @@
         <form class="flex flex-row justify-center border-2 mx-4 p-2 w-200" action="">
             <div class="grid grid-cols-4 gap-4 w-fit">
                 <label for="">Nombre de usuario</label>
-                <input class="border-2" type="text">
+                <input class="border-2" type="text" placeholder="Escribir nombre">
                 <label for="">Correo electronico</label>
-                <input class="border-2" type="text">
+                <input class="border-2" type="text" placeholder="Escribir email">
                 <label for="">Numero de telefono</label>
-                <input class="border-2" type="text">
+                <input class="border-2" type="text" placeholder="Escribir telefono">
                 <label for="">Contraseña</label>
-                <input class="border-2" type="password">
+                <input class="border-2" type="password" placeholder="Escribir contraseña">
             </div>
             <div class="flex items-center">
                 <button class="border-2 rounded-2xl p-2 ml-3" type="submit">Guardar cambios </button>
             </div> 
         </form>
         <h2>Juegos favoritos</h2>
-        <div class="border-4 border-solid border-black p-2 px-10 rounded-xl">
-            <img class="w-20 rounded-xl" src="../../images/default.png" alt="foto">
+        <div class="flex gap-4 border-4 border-solid border-black p-2 px-10 rounded-xl">
+            <div v-if="storeUsuarios.juegosFav.length == 0">
+                No tienes juegos en favoritos
+            </div>
+            <div v-for="juego in storeUsuarios.juegosFav">
+                <img class="w-20 rounded-xl" :src="juego.imagen" alt="foto">
+            </div>
         </div>
-        <h2>Libros favoritos</h2>
-        <div class="border-4 border-solid border-black p-2 px-10 rounded-xl">
-            <img class="w-20 rounded-xl" src="../../images/default.png" alt="foto">
+        
+        <h2>Libros favoritos</h2>        
+        <div class="flex border-4 border-solid border-black p-2 px-10 rounded-xl">
+            <div v-if="storeUsuarios.librosFav.length == 0">
+                No tienes libros en favoritos
+            </div>
+            <div v-for="libro in storeUsuarios.librosFav">
+                <img class="w-20 rounded-xl" :src="libro.imagen" alt="foto">
+            </div>
         </div>
     </main>
 </template>
+<script setup>
+    import {usuariosStore} from '@/stores/usuarios';
+    const storeUsuarios = usuariosStore();
+</script>
