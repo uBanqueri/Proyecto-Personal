@@ -5,12 +5,16 @@
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/juegos">Juegos</RouterLink>
       <RouterLink to="/libros">Libros</RouterLink>
-      <RouterLink to="/login">Iniciar Sesion</RouterLink>
-
-      <RouterLink to="/perfil">UnaiB</RouterLink>
-      <div>
-        <img class="rounded-full" src="../../images/default.png" alt="fPerfil" width="40px">
-      </div>
+      <template v-if="!usuariosStore.usuario">
+        <RouterLink to="/login">Iniciar Sesion</RouterLink>
+      </template>
+      <template v-else>
+        <RouterLink to="/perfil">{{usuariosStore.usuario.nombre}}</RouterLink>
+        <div>
+          <img class="rounded-full" src="../../images/default.png" alt="fPerfil" width="40px">
+        </div>
+      </template>
+      
 
     </nav>
   </header>
@@ -21,5 +25,11 @@
     <p class="text-center">MediaVault &copy; 2024</p>
   </footer>
 </template>
+
+<script setup>
+import { usuariosStore } from './stores/usuarios';
+
+
+</script>
 
 

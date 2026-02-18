@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import axios from 'axios';
 
-export const usuarioStore = defineStore('usuarios', () => {
+export const usuariosStore = defineStore('usuarios', () => {
   const usuario = ref(null);
 
   async function login(email, password) {
@@ -10,7 +10,7 @@ export const usuarioStore = defineStore('usuarios', () => {
       const response = await axios.get('/json/usuarios.json');
       const usuarios = response.data;
 
-      const user = usuarios.find(user => user.email === email && user.password === password);
+      const user = usuarios.find(user => user.correoElectronico === email && user.contrasena === password);
       
       if (user) {
         usuario.value = user;

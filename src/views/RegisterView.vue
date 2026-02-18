@@ -12,11 +12,11 @@
                 <label for="">Contraseña</label>
                 <input class="border-2" type="password">
                 <label for="">Selecciona una imagen <br> (opcional)</label>
-                <input class="border-2" type="">
+                <input class="border-2" type="file">
             </div>
             <div class="pt-6">
                 <button class="border-3 rounded-4xl p-2" type="submit">Resgistrarse</button>
-            </div>        
+            </div>
         </form>
     </div>
 </template>

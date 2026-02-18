@@ -1,9 +1,8 @@
 <template>
     <h1 class="text-2xl font-bold text-center">Listado de Libros</h1>
     <div class="flex justify-center gap-4 my-4">
-        <input v-model="busquedaTit" type="text" placeholder="Titulo del libro..." class="border-2">
-        <input v-model="busquedaAut" type="text" placeholder="Autor..." class="border-2">
-        <select v-model="filtroCate" name="" id="">
+        <input v-model="busqueda" type="text" placeholder="Titulo o autor..." class="border-2">
+        <select v-model="filtroCate" class="border-2">
             <option value="">Todos</option>
             <option v-for="categoria in categorias" :value="categoria">
                 {{ categoria }}
@@ -39,16 +38,13 @@
         storeLibros.cargarLibros();
     })
 
-    const busquedaTit = ref('');
-    const filtroTit = computed(() => 
-        storeLibros.libros.filter(libro => libro.titulo.toLowerCase().includes(busquedaTit.value.toLowerCase()))
-    );
-    
-    const busquedaAut = ref('');
-    const filtroAut = computed(() =>{
-        storeLibros.libros.filter(libro => libro.autor.toLowerCase().includes(busquedaAut.value.toLowerCase()
-    ))
-    })
+    const busqueda = ref('');
+    const filtroTexto = computed(() => 
+    storeLibros.libros.filter(libro =>
+        libro.titulo.toLowerCase().includes(busqueda.value.toLowerCase()) ||
+        libro.autor.toLowerCase().includes(busqueda.value.toLowerCase())
+    )
+    )
 
     const filtroCate = ref('');
     const categorias = computed(() => {
@@ -56,7 +52,7 @@
     })
 
     const librosFiltrados = computed(() => {
-        return filtroTit.value.filter(libro =>
+        return filtroTexto.value.filter(libro =>
             (libro.categoria == filtroCate.value || filtroCate.value == '')
         )
     })

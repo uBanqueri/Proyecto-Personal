@@ -1,9 +1,8 @@
 <template>
     <h1 class="text-2xl font-bold text-center">Listado de Juegos</h1>
     <div class="flex justify-center gap-4 my-4">
-        <input v-model="busquedaTit" type="text" placeholder="Titulo del juego..." class="border-2">
-        <input v-model="busquedaCre" type="text" placeholder="Creador..." class="border-2">
-        <select v-model="filtroCate" name="" id="">
+        <input v-model="busqueda" type="text" placeholder="Titulo o equipo..." class="border-2">
+        <select v-model="filtroCate" class="border-2">
             <option value="">Todos</option>
             <option v-for="categoria in categorias" :key="categoria" :value="categoria">
                 {{ categoria }}
@@ -39,16 +38,13 @@
         storeJuegos.cargarJuegos();
     })
 
-    const busquedaTit = ref('');
-    const filtroTit = computed(() => 
-        storeJuegos.juegos.filter(juego => juego.titulo.toLowerCase().includes(busquedaTit.value.toLowerCase()))
-    );
-    
-    const busquedaCre = ref('');
-    const filtroCre = computed(() =>{
-        storeJuegos.juego.filter(juego => juego.creador.toLowerCase().includes(busquedaCre.value.toLowerCase()
-    ))
-    })
+    const busqueda = ref('');
+    const filtroTexto = computed(() => 
+    storeJuegos.juegos.filter(juego =>
+        juego.titulo.toLowerCase().includes(busqueda.value.toLowerCase()) ||
+        juego.creador.toLowerCase().includes(busqueda.value.toLowerCase())
+    )
+    )
 
     const filtroCate = ref('');
     const categorias = computed(() => {
@@ -56,7 +52,7 @@
     })
 
     const juegosFiltrados = computed(() => {
-        return filtroTit.value.filter(juego =>
+        return filtroTexto.value.filter(juego =>
             (juego.categoria == filtroCate.value || filtroCate.value == '')
         )
     })
