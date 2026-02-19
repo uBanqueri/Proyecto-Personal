@@ -1,5 +1,5 @@
 <template>
-  <header class="flex flex-row justify-between p-4 text-2xl bg-amber-50 border-b-4">
+  <header class="">
     <img class="w-20 rounded-xl ml-10" src="../public/images/LogoClaro.png" alt="">
     <nav class="flex gap-4 items-center">
       <RouterLink class="navOp" to="/">Home</RouterLink>

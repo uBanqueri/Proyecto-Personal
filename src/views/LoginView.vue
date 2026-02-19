@@ -8,7 +8,8 @@
             <label for="">Contraseña</label>
             <input v-model="pass" type="password" class="border-2">
             </div>
-            <p v-if="error">{{ error }}</p>
+            <p v-if="storeUsuarios.exito" class="text-green-500 m-2">{{ storeUsuarios.exito }}</p>
+            <p class="text-red-500 m-2">{{ error }}</p>
             <div class="flex justify-around m-5">
                 <span class="mt-4"><a class="underline text-l font-bold " href="/register">Regitrate</a></span>
                 <span><button class="border-3 rounded-4xl p-2" type="submit">Iniciar sesion</button></span>

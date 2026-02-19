@@ -5,16 +5,54 @@
 @theme {
   --background-image-light: url('/images/fondoPapel.jpg');
   --background-image-dark:  url('/images/fondoJuego.jpg');
+  --background-image-flecha: url('./images/flecha.png');
+
+  --primary-light: #ecc99b;
+  --secondary-light: #ffebc5;
+  --primary-dark:;
+  --secondary-dark:;
+  --btn-light: #ffffff;
 }
 
 @layer base {
+  body{
+    background-color: var(--primary-light)
+  }
+  header{
+    @apply flex flex-row justify-between p-4 text-2xl border-b-4;
+    background-color: var(--secondary-light);
+  }
+
   button{
     @apply hover:cursor-pointer 
+  }
+
+  footer{
+    background-color: var(--secondary-light);
+    @apply border-t-4 mt-4
+  }
+}
+@layer colors {
+  .primary-light {
+    background-color: var(--primary-light);
+  }
+  .secondary-light {
+    background-color: var(--secondary-light);
+  }
+  .primary-dark {
+    background-color: var(--primary-dark);
+  }
+  .secondary-dark {
+    background-color: var(--secondary-dark);
   }
 }
 @layer components {
   .navOp {
-    @apply rounded-3xl border-2 p-1 px-2 hover:underline
+    @apply rounded-3xl border-2 p-1 px-2 hover:underline;
+    
+  }
+  .router-link-active{
+    @apply bg-white
   }
 
   .bg-card-light {
@@ -23,4 +61,31 @@
   .bg-card-dark {
     background-image: var(--background-image-dark);
   }
+
+  .paginado{
+    @apply border-2 rounded-lg mt-2 p-1 hover:underline;
+    background-color: var(--secondary-light);
+  }
+
+  .btnFlecha{
+    background-color: var(--secondary-light);
+    @apply text-2xl p-2 border-3 rounded-full w-10;
+  }
+
+  .cardCarrusel{
+    transition: transform 0.2s ease-in-out; 
+  }
+  .cardCarrusel:hover {
+    transform: scale(1.1);
+  }
+
+  .corazon{
+    @apply absolute w-10 -top-2 -right-7 hover:cursor-pointer;
+    transition: transform 0.2s ease-in-out; 
+  }
+  .corazon:hover {
+  transform: scale(1.1);
+  }
+  
 }
+

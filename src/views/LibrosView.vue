@@ -13,7 +13,7 @@
         <div class="border-2 p-4 px-7 " v-for="libro in librosFiltrados">
             <div class="relative flex justify-center">
                 <img class="items-center" :src="libro.imagen" alt="imagen" width="100px">
-                <button v-if="!esFavorito(libro.id)" @click="agregarLibro(libro)"><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
+                <button v-if="!esFavorito(libro.id)" @click="agregarLibro(libro.id)"><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
                 <button v-else @click="eliminarLibro(libro.id)"><img class="absolute -top-2 -right-6 hover:cursor-pointer" src="../../images/corazon2.png" alt="corazon"width="20px"></button>
 
             </div>
@@ -61,10 +61,10 @@
 
     //Funciones para favoritos
     function esFavorito(id){
-        return storeUsuarios.librosFav.some(librosFav => librosFav.id == id);
+        return storeUsuarios.librosFav.includes(String(id));
     }
-    function agregarLibro(libroFav){
-        storeUsuarios.agregarLibro(libroFav);        
+    function agregarLibro(id){
+        storeUsuarios.agregarLibro(id);        
     }
     function eliminarLibro(id){
         storeUsuarios.eliminarLibro(id);

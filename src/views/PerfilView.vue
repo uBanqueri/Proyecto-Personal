@@ -19,21 +19,23 @@
         </form>
         <h2>Juegos favoritos</h2>
         <div class="flex gap-4 border-4 border-solid border-black p-2 px-10 rounded-xl">
-            <div v-if="storeUsuarios.juegosFav.length == 0">
+            <div v-if="storeUsuarios.juegosCompletos.length === 0">
                 No tienes juegos en favoritos
             </div>
-            <div v-for="juego in storeUsuarios.juegosFav">
+            <div v-for="juego in storeUsuarios.juegosCompletos" :key="juego.id">
                 <img class="w-20 rounded-xl" :src="juego.imagen" alt="foto">
+                <span>{{ juego.titulo }}</span>
             </div>
         </div>
         
         <h2>Libros favoritos</h2>        
         <div class="flex border-4 border-solid border-black p-2 px-10 rounded-xl">
-            <div v-if="storeUsuarios.librosFav.length == 0">
+            <div v-if="storeUsuarios.librosCompletos.length === 0">
                 No tienes libros en favoritos
             </div>
-            <div v-for="libro in storeUsuarios.librosFav">
+            <div v-for="libro in storeUsuarios.librosCompletos" :key="libro.id">
                 <img class="w-20 rounded-xl" :src="libro.imagen" alt="foto">
+                <span>{{ libro.titulo }}</span>
             </div>
         </div>
     </main>
@@ -41,4 +43,5 @@
 <script setup>
     import {usuariosStore} from '@/stores/usuarios';
     const storeUsuarios = usuariosStore();
+
 </script>

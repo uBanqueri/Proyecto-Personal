@@ -1,6 +1,6 @@
 <template class="">
   <main class="mx-10">
-    <h1 class="text-2xl text-center">MediaVault</h1>
+    <p class="flex h-20 justify-center mt-2"><img src="../../public/images/MediaVaultClaro.png" alt=""></p>
     <section >    
         <h2 class="font-bold">Noticias mas relevantes</h2>
         <section class="grid grid-cols-3 gap-4">
@@ -17,7 +17,7 @@
           </div>
         </section>  
         <div class="flex justify-center text-2xl gap-2">
-          <button class="border-2 rounded-lg mt-2 p-1" v-for="p in totalPaginas" @click="irPagina(p)">
+          <button class="paginado" v-for="p in totalPaginas" @click="irPagina(p);"          >
             {{ p }}
           </button>
         </div>          
@@ -26,24 +26,24 @@
     <section>
       <h4 class="font-bold mb-2">Top Videojuegos</h4>      
       <div class="flex items-center gap-4 border-4 border-black p-4 rounded-xl">
-        <button @click="anteriorJue" class="text-2xl p-2">◀</button>
+        <button @click="anteriorJue" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="grid grid-cols-6 gap-4 flex-1">
           <div v-for="juego in visiblesJue" :key="juego.id">
             <img :src="juego.imagen" class="w-full aspect-3/4 object-cover rounded-xl" alt="foto">
           </div>
         </div>
-        <button @click="siguienteJue" class="text-2xl p-2">▶</button>
+        <button @click="siguienteJue" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
       </div>
 
       <h4 class="font-bold">Top Libros</h4>
       <div class="flex items-center gap-4 border-4 border-black p-4 rounded-xl">
-        <button @click="anteriorLib" class="text-2xl p-2">◀</button>
+        <button @click="anteriorLib" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="grid grid-cols-6 gap-4 flex-1">
-          <div v-for="libro in visiblesLib" :key="libro.id">
+          <div class="cardCarrusel" v-for="libro in visiblesLib" :key="libro.id">
             <img :src="libro.imagen" class="w-full aspect-3/4 object-cover rounded-xl" alt="foto">
           </div>
         </div>
-        <button @click="siguienteLib" class="text-2xl p-2">▶</button>
+        <button @click="siguienteLib" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
       </div>
     </section>
   </main>
@@ -107,7 +107,11 @@
       if(pagina.value < totalPaginas.value) pagina.value++;
     }
     const irPagina = (p) => {
-      pagina.value = Math.min(Math.max(1, p), totalPaginas.value)
+      pagina.value = Math.min(Math.max(1, p), totalPaginas.value);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
 
 </script>
