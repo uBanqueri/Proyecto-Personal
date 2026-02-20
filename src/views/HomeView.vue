@@ -1,15 +1,22 @@
 <template class="">
   <main class="mx-10">
-    <p class="flex h-20 justify-center mt-2"><img src="../../public/images/MediaVaultClaro.png" alt=""></p>
+    <p class="flex h-20 justify-center mt-2">
+      <img src="../../public/images/MediaVaultOscuro.png"  alt="">
+      
+      <!--
+      <img v-if="userStore.esOscuro" src="../../public/images/MediaVaultOscuro.png"  alt="">
+      <img v-else src="../../public/images/MediaVaultClaro.png" alt="">
+      -->
+    </p>
     <section >    
         <h2 class="font-bold">Noticias mas relevantes</h2>
         <section class="grid grid-cols-3 gap-4">
-          <div v-for="noticia in paginas" class="flex flex-col bg-card-light items-center border-2 border-black text-center px-2 rounded-xl">
+          <div v-for="noticia in paginas" class="flex flex-col bg-neutral-800 items-center border-2 border-black text-center px-2 rounded-xl">
             <div><img class="h-40 mt-2" :src="noticia.imagen" alt="foto"></div>
             <div>
               <h3 class="underline font-semibold">{{noticia.titulo}}</h3>
               <p>{{noticia.descripcion}}</p>
-              <p class="flex justify-between text-sm text-gray-700">
+              <p class="flex justify-between text-sm text-gray-500">
                 <span>{{noticia.autor}}</span> 
                 <span>{{noticia.fecha}}</span>   
               </p>
@@ -25,22 +32,24 @@
 
     <section>
       <h4 class="font-bold mb-2">Top Videojuegos</h4>      
-      <div class="flex items-center gap-4 border-4 border-black p-4 rounded-xl">
+      <div class="flex items-center gap-4 bg-neutral-800 mb-4 p-4 rounded-xl m-">
         <button @click="anteriorJue" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
-        <div class="grid grid-cols-6 gap-4 flex-1">
+        <div class="carrusel">
           <div v-for="juego in visiblesJue" :key="juego.id">
-            <img :src="juego.imagen" class="w-full aspect-3/4 object-cover rounded-xl" alt="foto">
+            <img :src="juego.imagen" class="cardCarrusel" alt="foto">
+            <span class="text-xs font-semibold mt-1 text-center truncate w-full">{{ juego.titulo }}</span>
           </div>
         </div>
         <button @click="siguienteJue" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
       </div>
 
       <h4 class="font-bold">Top Libros</h4>
-      <div class="flex items-center gap-4 border-4 border-black p-4 rounded-xl">
+      <div class="flex items-center gap-4 bg-neutral-800 mb-4 p-4 rounded-xl">
         <button @click="anteriorLib" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
-        <div class="grid grid-cols-6 gap-4 flex-1">
-          <div class="cardCarrusel" v-for="libro in visiblesLib" :key="libro.id">
-            <img :src="libro.imagen" class="w-full aspect-3/4 object-cover rounded-xl" alt="foto">
+        <div class="carrusel">
+          <div v-for="libro in visiblesLib" :key="libro.id" class="flex flex-col items-center min-w-[calc(16.66%-1rem)]">
+            <img :src="libro.imagen" class="cardCarrusel" alt="foto">
+            <span class="text-xs font-semibold mt-1 text-center truncate w-full">{{ libro.titulo }}</span>
           </div>
         </div>
         <button @click="siguienteLib" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
@@ -54,10 +63,12 @@
     import { noticiasStore } from '@/stores/noticias';  
     import { juegosStore} from '@/stores/juegos';
     import { librosStore} from '@/stores/libros';
+    import { usuariosStore} from '@/stores/usuarios';
 
     const storeNoticias = noticiasStore();
     const storeJuegos = juegosStore();
     const storeLibros = librosStore();
+    const userStore = usuariosStore();
 
     onMounted(() =>{
         storeNoticias.cargarNoticias();
@@ -115,3 +126,15 @@
     }
 
 </script>
+
+<style scoped>
+img {
+  animation: fadeIn 0.4s ease;
+  
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>

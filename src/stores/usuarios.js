@@ -159,8 +159,16 @@ export const usuariosStore = defineStore('usuarios', () => {
       }
     }
 
+  //cambiar tema
+      const esOscuro = ref(false);
+
+      function alternarTema() {
+        esOscuro.value = !esOscuro.value;
+        document.documentElement.classList.toggle('dark');
+      }
+
   return { usuario, login, logout, juegosFav, librosFav,
            agregarJuego, agregarLibro, eliminarJuego, eliminarLibro,
            juegosCompletos, librosCompletos, registrarUsuario, error, exito,
-            modificarUsuario };
+            modificarUsuario,esOscuro, alternarTema };
 });

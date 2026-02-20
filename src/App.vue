@@ -14,14 +14,20 @@
             <RouterLink class="navOp" to="/perfil">{{userStore.usuario.nombreUsuario}}</RouterLink>
           </div>          
           <div>
-            <div class="hidden group-hover:block absolute right-0 border-2">
-              <RouterLink to="/perfil" class="whitespace-nowrap">Mi Perfil</RouterLink> <br>
-              <button @click="logout" class="whitespace-nowrap hover:cursor-pointer">Cerrar Sesion</button>
+            <div class="hidden text-white text-lg bg-neutral-800 group-hover:block absolute rounded-xl p-2 border">
+              <RouterLink to="/perfil" class="whitespace-nowrap m-2 p-2 hover:bg-neutral-600   rounded-xl">Mi Perfil</RouterLink> <br>
+              <button @click="logout" class="whitespace-nowrap ">Cerrar Sesion</button>
             </div>
-          </div>
+          </div>          
         </div>
           <img class="rounded-full w-15 h-15" src="../../images/default.png" alt="fPerfil" width="40px">
       </template>
+      <!--
+      <button @click="userStore.alternarTema">
+        <img class="w-10" :src="userStore.esOscuro ? '/images/mandoTema.png' : '/images/libroTema.png' " alt="FotosTema">
+      </button>
+      -->
+     
       
 
     </nav>
@@ -46,6 +52,8 @@ function logout(){
   userStore.logout();
   router.push('/');
 }
+
+
 </script>
 
 
