@@ -10,44 +10,55 @@
         </select>
     </div>
     <section class="grid grid-cols-4 mx-10 pb-4 gap-4">        
-        <div v-for="juego in juegosFiltrados" :key="juego.titulo" 
-             class="flex flex-row group gap-4 p-4 px-3 h-100" 
-             :style="{ backgroundImage: `url(${juego.imagen})` }">
-            <div class="w-20">                                            
-                <div class="flex p-2 rounded-full bg-white w-fit transition-opacity duration-300 opacity-0  group-hover:opacity-100">
-                    <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego.id)"><img class="corazon" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
-                    <button v-else @click="eliminarJuego(juego.id)"><img class="corazon" src="../../images/corazon2.png" alt="corazon"width="20px"></button>
+        <div v-for="juego in juegosFiltrados" :key="juego.id" 
+            class="group relative flex flex-col h-100 overflow-hidden rounded-xl border border-gray-700 bg-cover bg-center" 
+            :style="{ backgroundImage: `url(${juego.imagen})` }">
+            
+            <div class="p-4">                                            
+                <div class="flex p-2 rounded-full bg-white/90 w-fit transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego.id)">
+                        <img class="corazon" src="../../images/corazon1.png" alt="corazon" width="20px">
+                    </button>
+                    <button v-else @click="eliminarJuego(juego.id)">
+                        <img class="corazon" src="../../images/corazon2.png" alt="corazon" width="20px">
+                    </button>
                 </div>
             </div>
-            <!--
-            <div class="text-center">
-                <h3 class="font-bold">{{juego.titulo}}</h3>
-                <p><span class="font-medium">Desarrollado por:</span> {{ juego.creador }}</p>                
-                <span class="font-medium"> Categoria:</span> {{ juego.categoria }} <br>
-                <span class="font-medium">Lanzamiento:</span>  {{juego.anio}}           
-                <p>{{ juego.descripcion }}</p>
-            </div>  
-            -->    
-            <div class="flex justify-center mt-auto">              
-                <button @click="toggleDatos(juego.id)" 
-                    class="bg-black items-end  text-white p-1 rounded-full hover:bg-black transition-transform"
-                    :class="{ 'rotate-180': juegoDesplegado === juego.id }">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <div class="absolute bottom-0 left-0 w-full transition-all duration-500 easi-in-out z-10 flex flex-col"
+                    :class="juegoDesplegado == juego.id ? 'h-[75%]' : 'h-[50px]'">
+                <button @click.stop="toggleDatos(juego.id)" 
+                        class="w-full bg-neutral-800 hover:bg-black text-white py-3 flex items-center justify-center gap-2 cursor-pointer select-none transition-colors border-t border-white">
+                    <span class="text-sm font-bold uppercase">
+                        {{ juegoDesplegado === juego.id ? 'Cerrar' : 'Detalles' }}
+                    </span>                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        :class="{'rotate-180': juegoDesplegado === juego.id}" 
+                        class="transition-transform duration-500 pointer-events-none">
+                        <path d="m18 15-6-6-6 6"/>
+                    </svg>
                 </button>
-            </div>  
 
-            <div class="overflow-hidden transition-all duration-500 ease-in-out bg-black/70 text-white rounded-lg"
-                :class="juegoDesplegado === juego.id ? 'max-h-[500px] p-4 opacity-100' : 'max-h-0 opacity-0'">
-                
-                <div class="text-center">
-                    <h3 class="font-bold text-xl underline decoration-blue-500 underline-offset-4 mb-2">
-                        {{juego.titulo}}
-                    </h3>
-                    <p><span class="font-medium text-blue-300">Desarrollado por:</span> {{ juego.creador }}</p>                
-                    <p><span class="font-medium text-blue-300">Categoría:</span> {{ juego.categoria }}</p>
-                    <p><span class="font-medium text-blue-300">Lanzamiento:</span> {{juego.anio}}</p>           
-                    <p class="mt-2 text-sm border-t border-gray-500 pt-2">{{ juego.descripcion }}</p>
-                </div> 
+                <div class="bg-black/95 text-white overflow-y-auto px-6 py-4">
+                    
+                    
+                    <div class="p-6 flex flex-col justify-center h-75 rounded-t-2xl text-center">
+                        <h3 class="font-bold text-2xl underline decoration-blue-500 underline-offset-8 mb-4">
+                            {{juego.titulo}}
+                        </h3>
+                        
+                        <div class="space-y-2 mb-4">
+                            <p><span class="font-medium text-blue-400">Desarrollador:</span> {{ juego.creador }}</p>                
+                            <p><span class="font-medium text-blue-400">Categoría:</span> {{ juego.categoria }}</p>
+                            <p><span class="font-medium text-blue-400">Año:</span> {{juego.anio}}</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-600 pt-4">
+                            <p class="text-sm text-gray-300">
+                                {{ juego.descripcion }}
+                            </p>
+                        </div>
+                    </div> 
+                </div>
             </div>
         </div>
     </section>
