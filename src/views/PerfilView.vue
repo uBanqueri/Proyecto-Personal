@@ -2,16 +2,16 @@
     <main class="mx-10">    
         <h1 class="text-2xl font-bold text-center">Perfil del usuario</h1>
         <h2 class="text-xl mx-2">Datos de la cuenta</h2>
-        <form class="flex flex-row justify-center border-2 mx-4 p-2 w-200" action="">
+        <form @submit.prevent="guardar" class="flex flex-row justify-center border-2 mx-4 p-2 w-200" action="">
             <div class="grid grid-cols-4 gap-4 w-fit">
                 <label for="">Nombre de usuario</label>
-                <input class="border-2" type="text" placeholder="Escribir nombre">
+                <input v-model="form.nombreUsuario" class="border-2" type="text" placeholder="Escribir nombre">
                 <label for="">Correo electronico</label>
-                <input class="border-2" type="text" placeholder="Escribir email">
+                <input v-model="form.correoElectronico" class="border-2" type="text" placeholder="Escribir email">
                 <label for="">Numero de telefono</label>
-                <input class="border-2" type="text" placeholder="Escribir telefono">
+                <input v-model="form.numeroTelefono" class="border-2" type="text" placeholder="Escribir telefono">
                 <label for="">Contraseña</label>
-                <input class="border-2" type="password" placeholder="Escribir contraseña">
+                <input v-model="form.contrasena" class="border-2" type="password" placeholder="Escribir contraseña">
             </div>
             <div class="flex items-center">
                 <button class="border-2 rounded-2xl p-2 ml-3" type="submit">Guardar cambios </button>
@@ -41,7 +41,16 @@
     </main>
 </template>
 <script setup>
+    import {ref} from 'vue'
     import {usuariosStore} from '@/stores/usuarios';
+
     const storeUsuarios = usuariosStore();
+    const form = ref({ nombreUsuario: '', correoElectronico:'', numeroTelefono:'', contrasena:''})
+
+    const guardar = () => {
+        storeUsuarios.modificarUsuario(form.value)
+        alert("Usuario Actualiado");
+        form.value = {nombreUsuario: '', correoElectronico: '', numeroTelefono: '', contrasena: ''}
+    }
 
 </script>

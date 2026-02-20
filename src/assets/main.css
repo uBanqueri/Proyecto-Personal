@@ -80,7 +80,7 @@
   }
 
   .corazon{
-    @apply absolute w-10 -top-2 -right-7 hover:cursor-pointer;
+    @apply w-10 hover:cursor-pointer;
     transition: transform 0.2s ease-in-out; 
   }
   .corazon:hover {

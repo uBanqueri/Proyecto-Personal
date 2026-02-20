@@ -141,9 +141,26 @@ export const usuariosStore = defineStore('usuarios', () => {
   localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
   exito.value = "Usuario registrado correctamente";
   return true;
-  }  
+  }
+  
+  //Modficar datos del usuario
+    function modificarUsuario(datosUsuario){
+      if(datosUsuario.nombreUsuario) usuario.value.nombreUsuario=datosUsuario.nombreUsuario;
+      if(datosUsuario.correoElectronico) usuario.value.correoElectronico=datosUsuario.correoElectronico;
+      if(datosUsuario.telefono) usuario.value.telefono=datosUsuario.telefono;
+      if(datosUsuario.contrasena) usuario.value.contrasena=datosUsuario.contrasena;
+
+      localStorage.setItem('usuario', JSON.stringify(usuario.value));
+      const lista = JSON.parse(localStorage.getItem('usuario')) || [];
+      const index = list.findIndex(user => user.id == usuario.value.id);
+      if(index !== -1){
+        lista[index] = {...usuario.value};
+        localStorage.setItem('usuario', JSON.stringify(lista));
+      }
+    }
 
   return { usuario, login, logout, juegosFav, librosFav,
            agregarJuego, agregarLibro, eliminarJuego, eliminarLibro,
-           juegosCompletos, librosCompletos, registrarUsuario, error, exito };
+           juegosCompletos, librosCompletos, registrarUsuario, error, exito,
+            modificarUsuario };
 });

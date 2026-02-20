@@ -9,13 +9,19 @@
             </option>
         </select>
     </div>
-    <section class="grid grid-cols-5 mx-10 pb-4 gap-4">
-        <div class=" border-2 gap-4 p-4 px-7" v-for="juego in juegosFiltrados" :key="juego.titulo    ">
-            <div class="relative flex justify-center">
-                <img class="items-center h-30" :src="juego.imagen" alt="imagen">
-                <!--:src="`/images/${juego.imagen}`"-->
-                <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego.id)"><img class="corazon animar-latido" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
-                <button v-else @click="eliminarJuego(juego.id)"><img class="corazon animar-latido" src="../../images/corazon2.png" alt="corazon"width="20px"></button>
+    <section class="grid grid-cols-4 mx-10 pb-4 gap-4">
+        
+        <div class=" border-2 gap-4 p-4 px-3" v-for="juego in juegosFiltrados" :key="juego.titulo    ">
+            <div class="grid grid-cols-[3fr_7fr_3fr]">
+                <div class=""></div>
+                <div>
+                    <img class=" h-30" :src="juego.imagen" alt="imagen">
+                    <!--:src="`/images/${juego.imagen}`"--> 
+                </div>                
+                <div class="ml-5">
+                    <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego.id)"><img class="corazon animar-latido" src="../../images/corazon1.png" alt="corazon"width="20px"></button>
+                    <button v-else @click="eliminarJuego(juego.id)"><img class="corazon animar-latido" src="../../images/corazon2.png" alt="corazon"width="20px"></button>
+                </div>                 
             </div>
             <div class="text-center">
                 <h3 class="font-bold">{{juego.titulo}}</h3>
