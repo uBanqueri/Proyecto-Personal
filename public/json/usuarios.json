@@ -14,9 +14,9 @@
     {
         "id":"2",
         "nombreUsuario": "DevMaster99",
-        "correoElectronico": "admin@vuejs.com",
+        "correoElectronico": "usuario2@prueba.com",
         "numeroTelefono": "+34 600 000 001",
-        "contrasena": "hash_seguro_123",
+        "contrasena": "123",
         "imagen": "https://randomuser.me/api/portraits/men/1.jpg",
         "favoritos": {
             "juegos": ["1", "2"],
@@ -26,9 +26,9 @@
     {
         "id":"3",
         "nombreUsuario": "CreativeCoder",
-        "correoElectronico": "info@diseno.io",
+        "correoElectronico": "usuario3@prueba.com",
         "numeroTelefono": "+52 555 123 456",
-        "contrasena": "pass_secreta_456",
+        "contrasena": "123",
         "imagen": "https://randomuser.me/api/portraits/women/2.jpg",
         "favoritos": {
             "juegos": ["1", "2", "3"],
@@ -38,9 +38,9 @@
     {
         "id":"4",
         "nombreUsuario": "PixelArtiste",
-        "correoElectronico": "pixel@art.net",
+        "correoElectronico": "usuario4@prueba.com",
         "numeroTelefono": "+1 202 555 0199",
-        "contrasena": "pixel_power_789",
+        "contrasena": "123",
         "imagen": "https://randomuser.me/api/portraits/women/3.jpg",
         "favoritos": {
             "juegos": ["1", "2"],

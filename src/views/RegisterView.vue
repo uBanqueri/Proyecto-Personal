@@ -1,23 +1,25 @@
 <template>
-    <h1 class="text-2xl font-bold text-center">Registrate</h1>
-    <div class="flex justify-center my-4">    
-        <form @submit.prevent="handleRegistro" class=" border-4 text-center w-fit p-7 rounded-xl" >
-            <div class="grid grid-cols-2 gap-4">
-                <label for="">Nombre de usuario</label>
-                <input v-model="form.nombeUsuario" class="border-2" type="text">
-                <label for="">Correo electronico</label>
-                <input v-model="form.correoElectronico" class="border-2" type="text">
-                <label for="">Numero de telefono</label>
-                <input v-model="form.numeroTelefono" class="border-2" type="text">
-                <label for="">Contraseña</label>
-                <input v-model="form.contrasena" class="border-2" type="password">                
-            </div>
-            <div class="pt-6">
-                <button class="border-3 rounded-4xl p-2" type="submit">Resgistrarse</button>
-            </div>
-            <p v-if="storeUsuarios.error" class="text-red-500 m-2">{{ storeUsuarios.error }}</p>            
-        </form>
-    </div>
+    <main class="mt-4">    
+        <h1 class="text-2xl font-bold text-center">Registrate</h1>
+        <div class="flex justify-center my-4">    
+            <form @submit.prevent="handleRegistro" class="bg-neutral-800 border-4 text-center w-fit p-7 rounded-xl" >
+                <div class="grid grid-cols-2 gap-4">
+                    <label for="">Nombre de usuario</label>
+                    <input v-model="form.nombeUsuario" class="input" type="text" placeholder="Escibir nombre">
+                    <label for="">Correo electronico</label>
+                    <input v-model="form.correoElectronico" class="input" type="text" placeholder="Escribir email">
+                    <label for="">Numero de telefono</label>
+                    <input v-model="form.numeroTelefono" class="input" type="text" placeholder="Escribir telefono">
+                    <label for="">Contraseña</label>
+                    <input v-model="form.contrasena" class="input" type="password" placeholder="Escribir contraseña">                
+                </div>
+                <div class="pt-6">
+                    <button class="border-3 rounded-4xl p-2 hover:bg-neutral-700" type="submit">Resgistrarse</button>
+                </div>
+                <p v-if="storeUsuarios.error" class="text-red-500 m-2">{{ storeUsuarios.error }}</p>            
+            </form>
+        </div>
+    </main>
 </template>
 <script setup>
 import { usuariosStore } from '@/stores/usuarios';

@@ -1,28 +1,29 @@
 <template>
   <main class="mx-10">    
     <h1 class="text-2xl font-bold text-center my-4">Perfil del usuario</h1>
-    
-    <h2 class="text-xl mx-2 font-semibold">Datos de la cuenta</h2>
-    <form @submit.prevent="guardar" class="flex flex-row bg-neutral-800 w-fit justify-center border-2 p-4 rounded-xl mb-8">
-      <div class="grid grid-cols-4 gap-4 items-center">
-        <label class="w-fit whitespace-nowrap">Nombre de usuario</label>
-        <input v-model="form.nombreUsuario" class="border hover:border-blue-400 px-2 bg-black" type="text" placeholder="Nombre">
-        <label>Correo electrónico</label> 
-        <input v-model="form.correoElectronico" class="border hover:border-blue-400 px-2 bg-black" type="text" placeholder="Email">
-        <label>Número de teléfono</label>
-        <input v-model="form.numeroTelefono" class="border hover:border-blue-400 px-2 bg-black" type="text" placeholder="Teléfono">
-        <label>Contraseña</label>
-        <input v-model="form.contrasena" class="border hover:border-blue-400 px-2 bg-black" type="password" placeholder="Contraseña">
-      </div>
-      <div class="flex items-center">
-        <button class="border-2 bg-blue-500 text-white rounded-2xl p-2 ml-3 hover:bg-blue-600 transition" type="submit">
-          Guardar cambios
-        </button>
-      </div> 
-    </form>
+    <section class="grid justify-center">
+      <h2 class="text-xl mx-2 font-semibold">Datos de la cuenta</h2>
+      <form @submit.prevent="guardar" class="flex flex-row bg-neutral-800 w-fit justify-center border-2 p-4 rounded-xl mb-8">
+        <div class="grid grid-cols-4 gap-4 items-center">
+          <label class="text-center">Nombre de usuario</label>
+          <input v-model="form.nombreUsuario" class="input" type="text" placeholder="Nombre">
+          <label class="text-center">Correo electrónico</label> 
+          <input v-model="form.correoElectronico" class="input" type="text" placeholder="Email">
+          <label class="text-center">Número de teléfono</label>
+          <input v-model="form.numeroTelefono" class="input" type="text" placeholder="Teléfono">
+          <label class="text-center">Contraseña</label>
+          <input v-model="form.contrasena" class="input" type="password" placeholder="Contraseña">
+        </div>
+        <div class="flex items-center">
+          <button class="border-2 bg-blue-500 text-white rounded-2xl p-2 ml-3 hover:bg-blue-600 transition" type="submit">
+            Guardar cambios
+          </button>
+        </div> 
+      </form>
+    </section>
 
     <h2 class="font-bold text-lg mb-2">Juegos favoritos</h2>
-    <div class="relative flex items-center gap-4 border-4 border-black p-4 rounded-xl mb-8">
+    <div class="relative flex bg-neutral-800 items-center gap-4 border-4 border-black p-4 rounded-xl mb-8">
       <button @click="anteriorJue" class="btnFlecha"><img src="../../images/flecha2.png" alt="prev"></button>
       <div class="carrusel">
         <div v-if="storeUsuarios.juegosCompletos.length === 0" class="w-full text-center py-4">
@@ -38,7 +39,7 @@
     </div>
 
     <h2 class="font-bold text-lg mb-2">Libros favoritos</h2>        
-    <div class="flex items-center gap-4 border-4 border-black p-4 rounded-xl">
+    <div class="flex bg-neutral-800 items-center gap-4 border-4 border-black p-4 rounded-xl">
       <button @click="anteriorLib" class="btnFlecha"><img src="../../images/flecha2.png" alt="prev"></button>
       
       <div class="carrusel">

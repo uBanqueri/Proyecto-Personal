@@ -1,8 +1,7 @@
 <template class="">
   <main class="mx-10">
     <p class="flex h-20 justify-center mt-2">
-      <img src="../../public/images/MediaVaultOscuro.png"  alt="">
-      
+      <img src="../../public/images/MediaVaultOscuro.png"  alt="">        
       <!--
       <img v-if="userStore.esOscuro" src="../../public/images/MediaVaultOscuro.png"  alt="">
       <img v-else src="../../public/images/MediaVaultClaro.png" alt="">
@@ -24,7 +23,8 @@
           </div>
         </section>  
         <div class="flex justify-center text-2xl gap-2">
-          <button class="paginado" v-for="p in totalPaginas" @click="irPagina(p);"          >
+          <button class="paginado" v-for="p in totalPaginas" @click="irPagina(p);"
+            :class="{'paginado-active' :  paginas == p}">
             {{ p }}
           </button>
         </div>          
@@ -32,24 +32,24 @@
 
     <section>
       <h4 class="font-bold mb-2">Top Videojuegos</h4>      
-      <div class="flex items-center gap-4 bg-neutral-800 mb-4 p-4 rounded-xl m-">
+      <div class="divCarrusel">
         <button @click="anteriorJue" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="carrusel">
-          <div v-for="juego in visiblesJue" :key="juego.id">
+          <div v-for="juego in visiblesJue" :key="juego.id" class="divTextCarrusel">
             <img :src="juego.imagen" class="cardCarrusel" alt="foto">
-            <span class="text-xs font-semibold mt-1 text-center truncate w-full">{{ juego.titulo }}</span>
+            <span class="textCarrusel">{{ juego.titulo }}</span>
           </div>
         </div>
         <button @click="siguienteJue" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
       </div>
 
       <h4 class="font-bold">Top Libros</h4>
-      <div class="flex items-center gap-4 bg-neutral-800 mb-4 p-4 rounded-xl">
+      <div class="divCarrusel">
         <button @click="anteriorLib" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="carrusel">
-          <div v-for="libro in visiblesLib" :key="libro.id" class="flex flex-col items-center min-w-[calc(16.66%-1rem)]">
+          <div v-for="libro in visiblesLib" :key="libro.id" class="divTextCarrusel">
             <img :src="libro.imagen" class="cardCarrusel" alt="foto">
-            <span class="text-xs font-semibold mt-1 text-center truncate w-full">{{ libro.titulo }}</span>
+            <span class="textCarrusel">{{ libro.titulo }}</span>
           </div>
         </div>
         <button @click="siguienteLib" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>

@@ -8,33 +8,45 @@
 
 @layer base {
   body{
-    @apply bg-black text-white
+    @apply bg-black text-white;
   }
   header{
     @apply bg-neutral-800 text-white flex flex-row justify-between p-4 text-2xl border-b-4;
   }
 
   button{
-    @apply hover:cursor-pointer 
+    @apply hover:cursor-pointer;
   }
 
   footer{
-    @apply border-t-4 mt-4 bg-neutral-800 text-white
+    @apply border-t-4 mt-4 bg-neutral-800 text-white;
   }
 }
 
 @layer components {
+  
+  .router-link-active{
+    @apply underline decoration-blue-400;
+  }
   .navOp {
-    @apply rounded-3xl border-2 p-1 px-2 hover:underline decoration-blue-400;
-    
+    @apply rounded-3xl p-1 px-2 hover:underline decoration-blue-400;
+  }
+
+  .titulo{
+    @apply text-2xl mt-4 font-bold text-center;
+  }
+  .input{
+    @apply bg-black border pl-2 hover:border-blue-400 /*hover:placeholder-white*/;
   }
 
   .paginado{
     @apply border-2 rounded-lg mt-2 p-1 hover:underline;
   }
-
   .btnFlecha{
     @apply bg-white text-2xl p-2 border-3 rounded-full w-10 flex items-center justify-center hover:scale-110 transition-transform;
+  }
+  .divCarrusel{
+  @apply flex items-center gap-4 bg-neutral-800 mb-4 p-4 rounded-xl;
   }
   .carrusel{
     @apply grid grid-cols-6 gap-4 flex-1;
@@ -46,17 +58,42 @@
   .cardCarrusel:hover {
     transform: scale(1.05);
   }
-
-  .card{
-    @apply hover:bg-white
+  .divTextCarrusel{
+    @apply flex flex-col items-center min-w-[calc(16.66%-1rem)];
+  }
+  .textCarrusel{
+    @apply text-xs font-semibold mt-1 text-center truncate w-full;
   }
 
+  .filtros{
+    @apply flex justify-center gap-4 my-4;
+  }
+  .divCards{
+    @apply grid grid-cols-4 mx-10 pb-4 gap-4;
+  }
+  .card{
+    @apply relative flex flex-col h-100 overflow-hidden rounded-xl border border-gray-700 bg-cover bg-center;
+  }
+  .divCorazon{
+    @apply flex p-2 rounded-full bg-white w-fit transition-opacity duration-300 opacity-0 group-hover:opacity-100;
+  }
   .corazon{
     @apply w-10 hover:cursor-pointer;
     transition: transform 0.2s ease-in-out; 
   }
   .corazon:hover {
   transform: scale(1.1);
-  }  
+  }
+
+  .desplegableInfo{
+    @apply absolute bottom-0 left-0 w-full transition-all duration-500 z-10 flex flex-col;
+  }
+  .despegableBtn{
+    @apply w-full bg-neutral-800 hover:bg-black text-white py-4 flex justify-center gap-2 cursor-pointer select-none transition-colors border-t border-white;
+  }
+  .info{
+    @apply font-medium text-blue-400;
+  }
+
 }
 

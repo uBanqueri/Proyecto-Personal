@@ -51,6 +51,13 @@ export const usuariosStore = defineStore('usuarios', () => {
         libros: librosFav.value
       };
       localStorage.setItem('usuario', JSON.stringify(usuario.value));
+
+      const lista = JSON.parse(localStorage.getItem('usuarios')) || [];
+      const index = lista.findIndex(user => user.id == usuario.value.id);  
+      if (index !== -1){
+        lista[index] = {...usuario.value};
+        localStorage.setItem('usuarios', JSON.stringify(lista))
+      }
     }
   };
 
@@ -79,11 +86,11 @@ export const usuariosStore = defineStore('usuarios', () => {
   }
 
   function logout() {
-    usuario.value = null;
-    librosFav.value = [];
-    juegosFav.value = [];
-    localStorage.removeItem('usuario');
-  };
+  usuario.value = null;
+  juegosFav.value = [];
+  librosFav.value = [];
+  localStorage.removeItem('usuario');
+};
 
   //Agregar Favoritos
   function agregarJuego(idJuego){
@@ -111,9 +118,7 @@ export const usuariosStore = defineStore('usuarios', () => {
     guardarStorage();
   }
 
-  //Crea un usuario
-
-  
+  //Crea un usuario  
   async function registrarUsuario(datosFormulario){
     error.value = null;
     var listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
@@ -150,13 +155,7 @@ export const usuariosStore = defineStore('usuarios', () => {
       if(datosUsuario.telefono) usuario.value.telefono=datosUsuario.telefono;
       if(datosUsuario.contrasena) usuario.value.contrasena=datosUsuario.contrasena;
 
-      localStorage.setItem('usuario', JSON.stringify(usuario.value));
-      const lista = JSON.parse(localStorage.getItem('usuario')) || [];
-      const index = list.findIndex(user => user.id == usuario.value.id);
-      if(index !== -1){
-        lista[index] = {...usuario.value};
-        localStorage.setItem('usuario', JSON.stringify(lista));
-      }
+      guardarStorage();
     }
 
   //cambiar tema

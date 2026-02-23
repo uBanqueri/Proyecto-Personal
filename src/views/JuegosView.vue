@@ -1,21 +1,21 @@
 <template>
-    <h1 class="text-2xl font-bold text-center">Listado de Juegos</h1>
-    <div class="flex justify-center gap-4 my-4">
-        <span class="font-semibold">Buscar por:</span><input class="border pl-1 hover:border-blue-400 hover:placeholder-white" v-model="busqueda" type="text" placeholder="Titulo o desarrollador...">
-        <select v-model="filtroCate" class="border hover:border-blue-400">
+    <h1 class="titulo">Listado de Juegos</h1>
+    <div class="filtros">
+        <span class="font-semibold">Buscar por:</span><input class="input" v-model="busqueda" type="text" placeholder="Titulo o desarrollador...">
+        <select v-model="filtroCate" class="input">
             <option value="">Todos</option>
             <option v-for="categoria in categorias" :key="categoria" :value="categoria">
                 {{ categoria }}
             </option>
         </select>
     </div>
-    <section class="grid grid-cols-4 mx-10 pb-4 gap-4">        
+    <section class="divCards">        
         <div v-for="juego in juegosFiltrados" :key="juego.id" 
-            class="group relative flex flex-col h-100 overflow-hidden rounded-xl border border-gray-700 bg-cover bg-center" 
+            class="card group" 
             :style="{ backgroundImage: `url(${juego.imagen})` }">
             
             <div class="p-4">                                            
-                <div class="flex p-2 rounded-full bg-white/90 w-fit transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                <div class="divCorazon">
                     <button v-if="!esFavorito(juego.id)" @click="agregarJuego(juego.id)">
                         <img class="corazon" src="../../images/corazon1.png" alt="corazon" width="20px">
                     </button>
@@ -24,10 +24,11 @@
                     </button>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 w-full transition-all duration-500 easi-in-out z-10 flex flex-col"
-                    :class="juegoDesplegado == juego.id ? 'h-[75%]' : 'h-[50px]'">
+            
+            <div class="desplegableInfo easi-in-out"
+                    :class="juegoDesplegado == juego.id ? 'h-[75%]' : 'h-12.5'">
                 <button @click.stop="toggleDatos(juego.id)" 
-                        class="w-full bg-neutral-800 hover:bg-black text-white py-3 flex items-center justify-center gap-2 cursor-pointer select-none transition-colors border-t border-white">
+                        class="despegableBtn">
                     <span class="text-sm font-bold uppercase">
                         {{ juegoDesplegado === juego.id ? 'Cerrar' : 'Detalles' }}
                     </span>                    
@@ -41,18 +42,18 @@
                 <div class="bg-black/95 text-white overflow-y-auto px-6 py-4">
                     
                     
-                    <div class="p-6 flex flex-col justify-center h-75 rounded-t-2xl text-center">
+                    <div class="p-6 flex flex-col h-75 rounded-t-2xl text-center">
                         <h3 class="font-bold text-2xl underline decoration-blue-500 underline-offset-8 mb-4">
                             {{juego.titulo}}
                         </h3>
                         
                         <div class="space-y-2 mb-4">
-                            <p><span class="font-medium text-blue-400">Desarrollador:</span> {{ juego.creador }}</p>                
-                            <p><span class="font-medium text-blue-400">Categoría:</span> {{ juego.categoria }}</p>
-                            <p><span class="font-medium text-blue-400">Año:</span> {{juego.anio}}</p>
+                            <p><span class="info">Desarrollador:</span> {{ juego.creador }}</p>                
+                            <p><span class="info">Categoría:</span> {{ juego.categoria }}</p>
+                            <p><span class="info">Año:</span> {{juego.anio}}</p>
                         </div>
                         
-                        <div class="border-t border-gray-600 pt-4">
+                        <div class="border-t border-gray-600 py-4">
                             <p class="text-sm text-gray-300">
                                 {{ juego.descripcion }}
                             </p>
