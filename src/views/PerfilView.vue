@@ -1,9 +1,9 @@
 <template>
   <main class="mx-10">    
-    <h1 class="text-2xl font-bold text-center my-4">Perfil del usuario</h1>
+    <h1 class="text-4xl font-bold text-center my-4">Perfil del usuario</h1>
     <section class="grid justify-center">
       <h2 class="text-xl mx-2 font-semibold">Datos de la cuenta</h2>
-      <form @submit.prevent="guardar" class="flex flex-row bg-neutral-800 w-fit justify-center border-2 p-4 rounded-xl mb-8">
+      <form @submit.prevent="guardar" class="flex flex-row text-2xl bg-neutral-800 w-fit justify-center border-2 p-4 rounded-xl mb-8">
         <div class="grid grid-cols-4 gap-4 items-center">
           <label class="text-center">Nombre de usuario</label>
           <input v-model="form.nombreUsuario" class="input" type="text" placeholder="Nombre">
