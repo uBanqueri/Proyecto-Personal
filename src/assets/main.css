@@ -70,7 +70,7 @@
   }
 
   .filtros{
-    @apply flex justify-center text-xl gap-4 my-4;
+    @apply flex justify-center text-2xl gap-4 my-4;
   }
   .divCards{
     @apply grid grid-cols-4 mx-10 pb-4 gap-4;
