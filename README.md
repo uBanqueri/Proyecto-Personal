@@ -11,17 +11,17 @@ proyecto e instalar Git y node.js en el equipo
 
 **- La URL del proyecto esta mas abajo no hace falta ir a GitHub -****
 
-![image.png](image.png)
+![image.png](public/docu/image.png)
 
 2-  Desde el buscador del equipo abrir la terminal del sistema “CMD”
 
-![image.png](8f74b1be-750b-4963-8fc7-52753ead6e67.png)
+![image.png](public/docu/image 0.png)
 
 Copiar la URL del proyecto y pegarlo en la terminal para ejecutar el comando:
 
 “git clone https://github.com/uBanqueri/Proyecto-Personal.git ”
 
-![image.png](image%201.png)
+![image.png](public/docu/image 1.png)
 
 3-Después tendremos que entrar a la nueva carpeta que nos hemos descargado e instalar las
 dependencias necesarias para desplegar la pagina en local.
@@ -31,12 +31,12 @@ En la misma terminal de comandos “CMD” del paso anterior ejecutaremos los si
 - cd Proyecto-Personal
 - npm install
 
-![image.png](image%202.png)
+![image.png](public/docu/image 2.png)
 
 - npm run dev
 
-![image.png](image%203.png)
+![image.png](public/docu/image 3.png)
 
 Pondremos lo que nos da en el apartado de Local: [http://localhost:5173/](http://localhost:5173/) en la URL del navegador
 
-![image.png](image%204.png)
+![image.png](public/docu/image 4.png)
