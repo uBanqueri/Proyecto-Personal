@@ -1,38 +1,42 @@
-# plantilla
+# Documentación Despliegue
 
-This template should help get you started developing with Vue 3 in Vite.
+1-Tener la URL del
+proyecto e instalar Git y node.js en el equipo
 
-## Recommended IDE Setup
+-Link a Git: [https://git-scm.com/](https://git-scm.com/)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+-Link a Node: [https://nodejs.org/es](https://nodejs.org/es)
 
-## Recommended Browser Setup
+-Link a Proyecto en Github: [https://github.com/uBanqueri/Proyecto-Personal](https://github.com/uBanqueri/Proyecto-Personal)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+**- La URL del proyecto esta mas abajo no hace falta ir a GitHub -****
 
-## Customize configuration
+![image.png](image.png)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+2-  Desde el buscador del equipo abrir la terminal del sistema “CMD”
 
-## Project Setup
+![image.png](8f74b1be-750b-4963-8fc7-52753ead6e67.png)
 
-```sh
-npm install
-```
+Copiar la URL del proyecto y pegarlo en la terminal para ejecutar el comando:
 
-### Compile and Hot-Reload for Development
+“git clone https://github.com/uBanqueri/Proyecto-Personal.git ”
 
-```sh
-npm run dev
-```
+![image.png](image%201.png)
 
-### Compile and Minify for Production
+3-Después tendremos que entrar a la nueva carpeta que nos hemos descargado e instalar las
+dependencias necesarias para desplegar la pagina en local.
 
-```sh
-npm run build
-```
+En la misma terminal de comandos “CMD” del paso anterior ejecutaremos los siguientes comandos:
+
+- cd Proyecto-Personal
+- npm install
+
+![image.png](image%202.png)
+
+- npm run dev
+
+![image.png](image%203.png)
+
+Pondremos lo que nos da en el apartado de Local: [http://localhost:5173/](http://localhost:5173/) en la URL del navegador
+
+![image.png](image%204.png)
