@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <header class="">
-      <img class="w-50 rounded-xl ml-10" src="../public/images/logos/frame3.png" alt="">
+      <img class="w-60 rounded-xl ml-10" src="../public/images/logos/frame4.2.png" alt="">
       <nav class="flex gap-4 items-center">
         <RouterLink class="navOp" to="/">Inicio</RouterLink>
         <RouterLink class="navOp" to="/juegos">Juegos</RouterLink>
@@ -17,7 +17,7 @@
             <div>
               <div class="hidden text-white text-2xl bg-neutral-800 group-hover:block absolute rounded-xl p-2 border">
                 <RouterLink to="/perfil" class="whitespace-nowrap p-2 hover:bg-neutral-600 rounded-xl">Mi Perfil</RouterLink> <br>
-                <button @click="logout" class="whitespace-nowrap p-2 hover:bg-neutral-600 hover:underline hover:decoration-red-500 rounded-xl">Cerrar Sesion</button>
+                <button @click="logout" class="whitespace-nowrap p-2 hover:bg-red-300 rounded-xl">Cerrar Sesion</button>
               </div>
             </div>          
           </div>
@@ -34,7 +34,7 @@
       <RouterView/> 
     </body>  
     <footer class="h-25 flex justify-center items-center">
-      <img class="h-10" src="../public/images/MediaVaultOscuro.png" alt="">
+      <img class="h-20" src="../public/images/MediaVaultOscuro.png" alt="">
     </footer>
   </div>
 </template>

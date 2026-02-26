@@ -1,6 +1,6 @@
 <template class="">
   <main class="mx-10">
-    <p class="flex h-20 justify-center mt-10">
+    <p class="flex h-40 justify-center mt-10">
       <img src="../../public/images/MediaVaultOscuro.png"  alt="">        
       <!--
       <img v-if="userStore.esOscuro" src="../../public/images/MediaVaultOscuro.png"  alt="">
@@ -9,23 +9,23 @@
     </p>
     <section >    
         <h2 class="font-bold text-4xl ml-8">Noticias mas relevantes</h2>
-        <section class="grid grid-cols-3 gap-4">
+        <section class="grid grid-cols-3 gap-4 mx-40">
           <div v-for="noticia in paginas" class="flex flex-col bg-neutral-800 items-center border-2 border-black text-center px-2 rounded-xl">
             <div><img class="h-40 mt-2" :src="noticia.imagen" alt="foto"></div>
             <div>
-              <h3 class="underline font-semibold text-xl px-4">{{noticia.titulo}}</h3>
-              <p>{{noticia.descripcion}}</p>
-              <p class="flex justify-between text-sm text-gray-400">
+              <h3 class="underline font-semibold text-3xl pb-2 px-4">{{noticia.titulo}}</h3>
+              <p class="text-xl text-justify px-4 pb-6">{{noticia.descripcion}}</p>
+              <p class="flex justify-between text-lg text-gray-400">
                 <span>{{noticia.autor}}</span> 
                 <span>{{noticia.fecha}}</span>   
               </p>
             </div>
           </div>
         </section>  
-        <div class="flex justify-center text-2xl gap-2">
-          <button class="paginado" v-for="p in totalPaginas" @click="irPagina(p);"
+        <div class="flex justify-center text-2xl gap-4">
+          <button class="paginado hover:bg-neutral-800 p-4" v-for="p in totalPaginas" @click="irPagina(p);"
             :class="{'paginado-active' :  paginas == p}">
-            {{ p }}
+            <span class="text-4xl">{{ p }}</span>
           </button>
         </div>          
     </section>
