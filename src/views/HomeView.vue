@@ -1,6 +1,6 @@
 <template class="">
   <main class="mx-10">
-    <p class="flex h-20 justify-center mt-2">
+    <p class="flex h-20 justify-center mt-10">
       <img src="../../public/images/MediaVaultOscuro.png"  alt="">        
       <!--
       <img v-if="userStore.esOscuro" src="../../public/images/MediaVaultOscuro.png"  alt="">
@@ -8,14 +8,14 @@
       -->
     </p>
     <section >    
-        <h2 class="font-bold">Noticias mas relevantes</h2>
+        <h2 class="font-bold text-4xl ml-8">Noticias mas relevantes</h2>
         <section class="grid grid-cols-3 gap-4">
           <div v-for="noticia in paginas" class="flex flex-col bg-neutral-800 items-center border-2 border-black text-center px-2 rounded-xl">
             <div><img class="h-40 mt-2" :src="noticia.imagen" alt="foto"></div>
             <div>
-              <h3 class="underline font-semibold">{{noticia.titulo}}</h3>
+              <h3 class="underline font-semibold text-xl px-4">{{noticia.titulo}}</h3>
               <p>{{noticia.descripcion}}</p>
-              <p class="flex justify-between text-sm text-gray-500">
+              <p class="flex justify-between text-sm text-gray-400">
                 <span>{{noticia.autor}}</span> 
                 <span>{{noticia.fecha}}</span>   
               </p>

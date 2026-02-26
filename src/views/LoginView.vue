@@ -1,7 +1,7 @@
 <template>
-    <main class="mt-4">    
-        <h1 class="text-2xl text-center font-bold">Inicio de sesion</h1>
-        <div class="flex justify-center my-4">    
+    <main class="mt-20">    
+        <h1 class="text-6xl text-center font-bold">Inicio de sesion</h1>
+        <div class="flex justify-center my-10 text-3xl">    
             <form @submit.prevent="login" class="bg-neutral-800 border-4 text-center w-fit p-7 rounded-xl " action="">
                 <div class="grid grid-cols-2 gap-4">
                 <label class="" for="">Correo Electronico</label>

@@ -42,7 +42,7 @@
                 <div class="bg-black/95 text-white overflow-y-auto px-6 py-4">
                     
                     
-                    <div class="p-6 flex flex-col h-75 rounded-t-2xl text-center">
+                    <div class="p-6 flex flex-col h-91 rounded-t-2xl text-center">
                         <h3 class="font-bold text-2xl underline decoration-blue-500 underline-offset-8 mb-4">
                             {{juego.titulo}}
                         </h3>

@@ -1,7 +1,7 @@
 <template>
-    <main class="mt-4">    
-        <h1 class="text-2xl font-bold text-center">Registrate</h1>
-        <div class="flex justify-center my-4">    
+    <main class="mt-20">    
+        <h1 class="text-6xl font-bold text-center">Registrate</h1>
+        <div class="flex justify-center my-10 text-3xl">    
             <form @submit.prevent="handleRegistro" class="bg-neutral-800 border-4 text-center w-fit p-7 rounded-xl" >
                 <div class="grid grid-cols-2 gap-4">
                     <label for="">Nombre de usuario</label>
