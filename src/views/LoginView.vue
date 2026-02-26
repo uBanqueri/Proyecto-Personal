@@ -12,7 +12,7 @@
                 <p v-if="storeUsuarios.exito" class="text-green-500 m-2">{{ storeUsuarios.exito }}</p>
                 <p class="text-red-500 m-2">{{ error }}</p>
                 <div class="flex justify-around m-5">
-                    <span class="mt-4"><a class="underline text-l font-bold hover:decoration-blue-400" href="/register">Regitrate</a></span>
+                    <span class="mt-4"><a class="underline text-l font-bold hover:decoration-blue-400" href="/register">Registrate</a></span>
                     <span><button class="border-3 rounded-4xl p-2 hover:bg-neutral-700" type="submit">Iniciar sesion</button></span>
                 </div>
             </form>
