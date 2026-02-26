@@ -30,8 +30,10 @@
         -->
       </nav>
     </header>
-    <body class="grow">
-      <RouterView/> 
+    <body>
+      <div class="grow">
+        <RouterView/> 
+      </div>
     </body>  
     <footer class="h-25 flex justify-center items-center">
       <img class="h-10" src="../public/images/MediaVaultOscuro.png" alt="">

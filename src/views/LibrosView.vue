@@ -29,7 +29,7 @@
                     :class="libroDesplegado == libro.id ? 'h-[75%]' : 'h-12.5'">
                 <button @click.stop="toggleDatos(libro.id)" 
                         class="despegableBtn">
-                    <span class="text-sm font-bold uppercase">
+                    <span class="text-lg font-bold uppercase">
                         {{ libroDesplegado === libro.id ? 'Cerrar' : 'Detalles' }}
                     </span>                    
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -42,7 +42,7 @@
                 <div class="bg-black/95 text-white overflow-y-auto px-6 py-4">
                     
                     
-                    <div class="p-6 flex flex-col h-91 rounded-t-2xl text-center">
+                    <div class="p-6 flex flex-col h-128 rounded-t-2xl text-center">
                         <h3 class="font-bold text-2xl underline decoration-blue-500 underline-offset-8 mb-4">
                             {{libro.titulo}}
                         </h3>

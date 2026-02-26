@@ -76,7 +76,7 @@
     @apply grid grid-cols-4 mx-10 pb-4 gap-4;
   }
   .card{
-    @apply relative flex flex-col h-150 overflow-hidden rounded-xl border border-gray-700 bg-cover bg-center;
+    @apply relative flex flex-col h-200 overflow-hidden rounded-xl border border-gray-700 bg-cover bg-center;
   }
   .divCorazon{
     @apply flex p-2 rounded-full bg-white w-fit transition-opacity duration-300 opacity-0 group-hover:opacity-100;

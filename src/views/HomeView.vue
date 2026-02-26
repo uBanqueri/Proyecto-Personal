@@ -31,7 +31,7 @@
     </section>
 
     <section>
-      <h4 class="font-bold mb-2">Top Videojuegos</h4>      
+      <h4 class="font-bold text-2xl mb-2">Top Videojuegos</h4>      
       <div class="divCarrusel">
         <button @click="anteriorJue" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="carrusel">
@@ -43,7 +43,7 @@
         <button @click="siguienteJue" class="btnFlecha"><img src="../../images/flecha.png" alt=""></button>
       </div>
 
-      <h4 class="font-bold">Top Libros</h4>
+      <h4 class="font-bold text-2xl">Top Libros</h4>
       <div class="divCarrusel">
         <button @click="anteriorLib" class="btnFlecha"><img src="../../images/flecha2.png" alt=""></button>
         <div class="carrusel">
